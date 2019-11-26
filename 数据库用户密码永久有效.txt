@@ -1,0 +1,17 @@
+在oracle登录SQL管理员
+①SQL> conn /as sysdba
+Connected.
+
+Session altered.
+
+②SQL> SELECT username,PROFILE FROM dba_users;
+
+③SQL>select * from dba_profiles s where s.profile='DEFAULT' and resource_name='PASSWORD_LIFE_TIME';
+
+④SQL> alter PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;
+
+修改后立即生效，不用重启数据库
+
+⑤SQL> select * from dba_profiles s where s.profile='DEFAULT' and resource_name='PASSWORD_LIFE_TIME';
+
+检查是否改成UNLIMITED
