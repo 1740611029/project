@@ -10,12 +10,12 @@ public class BankCard {
 	public int card;
 	public String password;
 	public String ID;
-	public String OTime;//¿ª»§Ê±¼ä
+	public String OTime;//å¼€æˆ·æ—¶é—´
 	public static float balance=5000;
 	
 	BankCard(){
-		bank="ÖĞ¹úÒøĞĞ";
-		name="ÎŞÃûÊÏ";
+		bank="ä¸­å›½é“¶è¡Œ";
+		name="æ— åæ°";
 		card=100000;
 		ID="000000";
 		OTime="2018/01/01";
@@ -30,7 +30,7 @@ public boolean submit(String mypassword) {
 }
 public float balance() {
 	float d=balance;
-	System.out.println("ÄúµÄ¿¨ÄÚÓà¶îÎª£º"+d+"Ôª");
+	System.out.println("æ‚¨çš„å¡å†…ä½™é¢ä¸ºï¼š"+d+"å…ƒ");
 	return d;
 }
 public void takeout(float money) {
@@ -38,12 +38,12 @@ public void takeout(float money) {
 		if(money<=balance) {
 			float d=balance-money;
 			balance=d;
-			/*Êı¾İ¿â¸üĞÂ*/
+			/*æ•°æ®åº“æ›´æ–°*/
 			int result = dBConnection.updata(balance,card);
-			System.out.println("ÄúµÄÈ¡¿î½ğ¶îÎª£º"+money+"Ôª\nÄúµÄ¿¨ÄÚÓà¶îÎª£º"+d+"Ôª");
+			System.out.println("æ‚¨çš„å–æ¬¾é‡‘é¢ä¸ºï¼š"+money+"å…ƒ\næ‚¨çš„å¡å†…ä½™é¢ä¸ºï¼š"+d+"å…ƒ");
 		}
 		else {
-			JOptionPane.showMessageDialog(null, "ÕË»§Óà¶î²»×ã !","ÏûÏ¢¶Ô»°¿ò",JOptionPane.WARNING_MESSAGE);
+			JOptionPane.showMessageDialog(null, "è´¦æˆ·ä½™é¢ä¸è¶³ !","æ¶ˆæ¯å¯¹è¯æ¡†",JOptionPane.WARNING_MESSAGE);
 		}
 	
 	}
@@ -53,83 +53,9 @@ public void save(float money) {
 	float d=balance+money;
 	balance=d;
 	int result = dBConnection.updata(balance,card);
-	System.out.println("ÄúµÄ´æ¿î½ğ¶îÎª£º"+money+"Ôª\nÄúµÄ¿¨ÄÚÓà¶îÎª£º"+d+"Ôª");
+	System.out.println("æ‚¨çš„å­˜æ¬¾é‡‘é¢ä¸ºï¼š"+money+"å…ƒ\næ‚¨çš„å¡å†…ä½™é¢ä¸ºï¼š"+d+"å…ƒ");
 }
 	
 	
-
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//		BankCard c1=new BankCard();
-//		System.out.println("ÇëÊäÈëÃÜÂë£º");
-//		Scanner sc=new Scanner(System.in);
-//		String mypassword=sc.next();
-//		boolean b=c1.submit(mypassword);
-//		int flag=1;
-//		while(flag==1)
-//		{
-//		if(b)
-//		{
-//			System.out.println("¡¾"+c1.bank+"¡¿»¶Ó­Äú£¡"+c1.name+"ÄúµÄ¿¨ºÅÎª£º"+c1.cardNumber+"ÇëÄúÑ¡ÔñÏÂÁĞ²Ù×÷£º");
-//			System.out.println("1.²éÑ¯Óà¶î");
-//			System.out.println("2.È¡¿î");
-//			System.out.println("3.´æ¿î");
-//			System.out.println("4.ÏÔÊ¾ÕË»§ĞÅÏ¢");
-//			System.out.println("5.ÍË³ö");
-//		}
-//		else
-//			System.out.println("ÃÜÂë´íÎó£¡£¡£¡");
-//		int i=sc.nextInt();
-//		
-//			switch(i)
-//			{
-//			case 1:
-//				c1.balance();
-//				System.out.println("ÊÇ·ñ¼ÌĞø£¿\n¼ÌĞø £¨1£©   ÍË³ö £¨0£©");
-//				flag=sc.nextInt();
-//				if(flag==0)
-//					System.out.println("Ğ»Ğ»Ê¹ÓÃ£¬ÔÙ¼û£¡");
-//				break;
-//			case 2:
-//				System.out.print("ÇëÊäÈëÈ¡¿î½ğ¶î£º");
-//				double j=sc.nextDouble();
-//				c1.takeout(j);
-//				System.out.println("ÊÇ·ñ¼ÌĞø£¿\n¼ÌĞø £¨1£©   ÍË³ö £¨0£©");
-//				flag=sc.nextInt();
-//				if(flag==0)
-//					System.out.println("Ğ»Ğ»Ê¹ÓÃ£¬ÔÙ¼û£¡");
-//				break;
-//			case 3:
-//				System.out.print("ÇëÊäÈëÈ¡¿î½ğ¶î£º");
-//				double k=sc.nextDouble();
-//				c1.save(k);
-//				System.out.println("ÊÇ·ñ¼ÌĞø£¿\n¼ÌĞø £¨1£©   ÍË³ö £¨0£©");
-//				flag=sc.nextInt();
-//				if(flag==0)
-//					System.out.println("Ğ»Ğ»Ê¹ÓÃ£¬ÔÙ¼û£¡");
-//				break;
-//			case 4:
-//				System.out.println(""+c1.bank);
-//				System.out.println("¿¨ºÅ£º"+c1.cardNumber);
-//				System.out.println("ĞÕÃû£º"+c1.name);
-//				System.out.println("Éí·İÖ¤ºÅ£º"+c1.ID);
-//				System.out.println("¿ª»§Ê±¼ä£º"+c1.OTime);
-//				System.out.println("Óà¶î£º"+c1.balance());
-//				System.out.println("ÊÇ·ñ¼ÌĞø£¿\n¼ÌĞø £¨1£©   ÍË³ö £¨0£©");
-//				flag=sc.nextInt();
-//				if(flag==0)
-//					System.out.println("Ğ»Ğ»Ê¹ÓÃ£¬ÔÙ¼û£¡");
-//				break;
-//			case 5:
-//				System.out.println("È·¶¨ÍË³ö£¿\n¼ÌĞø £¨1£©   ÍË³ö £¨0£©");
-//				flag=sc.nextInt();
-//				if(flag==0)
-//					System.out.println("Ğ»Ğ»Ê¹ÓÃ£¬ÔÙ¼û£¡");
-//				break;
-//			default:
-//				System.out.println("ÊäÈë´íÎó");
-//			}
-//		}
-//	}
 
 }
