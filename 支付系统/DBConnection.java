@@ -16,12 +16,12 @@ public class DBConnection {
 		try {
 			Class.forName(driver);
 			con=DriverManager.getConnection(url, user, password);
-			System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦!");
+			System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸ!");
 		}catch(ClassNotFoundException e) {
-			System.out.println("Çı¶¯³ÌĞò×°ÔØÊ§°Ü!");
+			System.out.println("é©±åŠ¨ç¨‹åºè£…è½½å¤±è´¥!");
 		}
 		catch(SQLException e) {
-			System.out.println("Êı¾İ¿âÁ¬½ÓÊ§°Ü!");
+			System.out.println("æ•°æ®åº“è¿æ¥å¤±è´¥!");
 		}
 	}
 	
@@ -34,11 +34,11 @@ public class DBConnection {
 			
 			while(rs.next()) {
 				result++;
-				JOptionPane.showMessageDialog(null, "µÇÂ½³É¹¦£¡","ÏûÏ¢¶Ô»°¿ò",JOptionPane.DEFAULT_OPTION); 
+				JOptionPane.showMessageDialog(null, "ç™»é™†æˆåŠŸï¼","æ¶ˆæ¯å¯¹è¯æ¡†",JOptionPane.DEFAULT_OPTION); 
 			}
 			
 			if(result == -1)
-				JOptionPane.showMessageDialog(null, "ÕËºÅ»òÃÜÂë´íÎó !","ÏûÏ¢¶Ô»°¿ò",JOptionPane.WARNING_MESSAGE);
+				JOptionPane.showMessageDialog(null, "è´¦å·æˆ–å¯†ç é”™è¯¯ !","æ¶ˆæ¯å¯¹è¯æ¡†",JOptionPane.WARNING_MESSAGE);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -63,7 +63,7 @@ public class DBConnection {
 	}
 	
 	/**
-	 * Í¨¹ıÕËºÅ²éÑ¯ÓÃ»§ĞÅÏ¢
+	 * é€šè¿‡è´¦å·æŸ¥è¯¢ç”¨æˆ·ä¿¡æ¯
 	 * @param cardNumber
 	 * @return
 	 */
@@ -93,21 +93,10 @@ public class DBConnection {
 		return bankCard;
 	}
 	
-	public int updata(float balance,int card) {
-		int result=-1;
-		try {
-			Statement sql = con.createStatement();
-			String sqlString = "update asd.dbo.login set balance = "+balance+"where card = '"+card+"';";
-			System.out.println(sqlString);
-			sql.executeUpdate(sqlString);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return  result;
-	}
+	
 	
 	public static void main(String[] args) {
 		DBConnection dBConnection = new DBConnection();
-		dBConnection.query("Áõ³¿", "123456");
+		dBConnection.query("åˆ˜æ™¨", "123456");
 	}
 }
