@@ -93,7 +93,18 @@ public class DBConnection {
 		return bankCard;
 	}
 	
-	
+	public int updata(float balance,int card) {
+		int result=-1;
+		try {
+			Statement sql = con.createStatement();
+			String sqlString = "update asd.dbo.login set balance = "+balance+"where card = '"+card+"';";
+			System.out.println(sqlString);
+			sql.executeUpdate(sqlString);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return  result;
+	}
 	
 	public static void main(String[] args) {
 		DBConnection dBConnection = new DBConnection();
