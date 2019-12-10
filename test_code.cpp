@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+//分数类
 class fenshu
 {
 	private:
@@ -20,6 +20,7 @@ class fenshu
 		int yf(int n,int m);
 		
 };
+//约分函数
 int fenshu::yf(int n,int m)
 {
 	int a;
@@ -32,7 +33,7 @@ int fenshu::yf(int n,int m)
 	}
 	return a;
 }
-
+//分数加法函数
 fenshu fenshu::add(fenshu f)
 {
 	fenshu sum;
